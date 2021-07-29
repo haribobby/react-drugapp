@@ -41,6 +41,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <div> Hello React!!!! </div>
       {/* <DrugItemList title="lipitor" /> */}
       {/* <DrugItemList title1 = {drugs[0].title} amount1 = {drugs[0].amount} /> */}
       <DrugItemList
