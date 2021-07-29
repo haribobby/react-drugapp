@@ -1,13 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-import DrugItemList from './components/DrugItemList';
-
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
-
-function App() {
-
-  const drugs = [
+const drugs = [
     {
       id: 'd1',
       title: 'Crocin',
@@ -38,12 +29,8 @@ function App() {
     }
   ];
 
-  return (
-    <div className="App">
-      <Header />
-      {/* <DrugItemList title="lipitor" /> */}
-      {/* <DrugItemList title1 = {drugs[0].title} amount1 = {drugs[0].amount} /> */}
-      <DrugItemList
+
+{/* <DrugItemList
         title = {drugs[0].title}
         desc = {drugs[0].desc}
         amount = {drugs[0].amount}
@@ -66,10 +53,16 @@ function App() {
         desc = {drugs[3].desc}
         amount = {drugs[3].amount}
         isPopular = {drugs[3].isPopular}
-       />
-      <Footer />
-    </div>
-  );
-}
+       /> */}
 
-export default App;
+       
+
+
+        // <div className="drug-item">
+    //   <div className="drug-item__title"><b>{props.title}</b></div>
+    //   <div className="drug-item__description">
+    //     <h2>{props.isPopular ? 'Yes' : 'No'}</h2>
+    //     <h2>{props.desc}</h2>
+    //     <div className="drug-item__price">${props.amount}</div>
+    //   </div>
+    // </div>
