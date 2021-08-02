@@ -1,0 +1,38 @@
+.new-drug {
+    background-color: #333232;
+    padding: 1rem;
+    margin: 5rem auto;
+    width: 50rem;
+    max-width: 95%;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  .new-drug button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #5f217c;
+    background-color: #925aac;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+  }
+  
+  .new-drug button:hover,
+  .new-drug button:active {
+    background-color: #925aac;
+    border-color: #510674;
+  }
+  
+  .new-drug button.alternative {
+    color: #220131;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  
+  .new-drug button.alternative:hover,
+  .new-drug button.alternative:active {
+    background-color: #ddb3f8;
+  }

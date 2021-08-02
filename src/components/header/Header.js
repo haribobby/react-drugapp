@@ -2,14 +2,12 @@ import { Fragment } from 'react';
 import './Header.css'
 
 const Header = () => {
-  const title = 'Drug App';
   return (
-    <>
+    <Fragment>
       <header className="header">
-        <h2>{title}</h2>
+        <h2>Drug App</h2>
       </header>
-      
-    </>
+    </Fragment>
   );
 };
 

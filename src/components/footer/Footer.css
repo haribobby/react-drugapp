@@ -1,18 +1,9 @@
-/* .footer {
+.footer {
   background-color: #292725;
   color: white;
   height: 4rem;
   align-items: center; 
-  } */
-
-
-  .footer {
-  color: white;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  background-color: #292725;
-}
+  }
   .ptag{
     text-align: center;
   }
