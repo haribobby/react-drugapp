@@ -61,3 +61,92 @@ const [drugs, setDrugs] = useState(STATIC_DRUD_DATA);
     });
   };
 
+in app.js
+
+  <main>
+        <Route path='/welcome'>
+          <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+          <DrugItemList drugs={drugs} />
+        </Route>
+        <Route path='/products'>
+          <NewDrugForm />
+        </Route>
+      </main>
+
+in header.js
+  <nav>
+          <ul>
+            <li>
+              <h2>DrugApp</h2>
+          </li>
+          <li>
+            
+          </li>
+            <li>
+              <NavLink activeStyle={{ color: 'yellow' }} to='/welcome'>Welcome</NavLink>
+            </li>
+            <li>
+              <Link to='/dashboard'>Dashboard</Link>
+            </li>
+            <li>
+              <Link to='/products'>Products</Link>
+            </li>
+            <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
+            <li>
+              <Link to='/help'>Help/Contact</Link>
+            </li>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li>
+              <Link to='/login'>Logout</Link>
+            </li>
+          </ul>
+        </nav>
+
+  <NavLink activeStyle={{ color: 'yellow' }}to='/welcome'>Welcome</NavLink>
+
+
+
+header css
+/* .header {
+    width: 100%;
+    height: 5rem;
+    background-color: #044599;
+    padding: 0 10%;
+  } */
+  
+  .header nav {
+    height: 100%;
+  }
+  
+
+  .header ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header li {
+    margin: 0 0.8rem;
+    width: 5rem;
+  }
+  
+
+  .header a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header a:hover,
+  .header a:active {
+    color: #95bcf0;
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid #95bcf0;
+  }

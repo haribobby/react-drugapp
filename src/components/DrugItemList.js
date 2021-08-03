@@ -1,6 +1,8 @@
 import './DrugItemList.css'
 import DrugItem from './DrugItem';
 function DrugItemList(props) {
+
+    console.log(props.drugs);
     return (
         // <div className="drug-item">
         //     <div className="drug-item__title"><b>{props.title}</b></div>
@@ -11,7 +13,6 @@ function DrugItemList(props) {
         //     </div>
         // </div>
         <div className="drug-item__list">
-
 
             {props.drugs.map((drug) => (
                 <DrugItem

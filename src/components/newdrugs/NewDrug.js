@@ -10,6 +10,8 @@ const NewDrug = (props) => {
           ...enteredDrugData,
           id: Math.random().toString()
         };
+
+        //console.log("NewDrug.... "+ JSON.stringify(drugData));
         props.onAddDrug(drugData);
       };
   return (

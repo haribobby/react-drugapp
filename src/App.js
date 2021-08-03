@@ -5,6 +5,10 @@ import NewDrug from './components/newdrugs/NewDrug';
 import { useState } from 'react';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
+import WelcomeComp from './components/pages/WelcomeComp';
+import { Route } from 'react-router-dom';
+import DashBoard from './components/pages/DashBoard';
+import BlogComp from './components/pages/BlogComp';
 
 
 const STATIC_DRUD_DATA = [
@@ -84,9 +88,28 @@ function App() {
         isPopular = {drugs[3].isPopular}
        /> */}
       <Header />
-      <NewDrug onAddDrug={addDrugHandler}></NewDrug>
-      <DrugItemList drugs={drugs} />
-      <Footer/>
+      {/* <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+      <DrugItemList drugs={drugs} /> */}
+
+
+      <main>
+        {/* <Route path='/drug'>
+          <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+          <DrugItemList drugs={drugs} />
+        </Route> */}
+        <Route path='/welcome'>
+          <WelcomeComp />
+        </Route>
+        <Route path='/dashboard'>
+          <DashBoard />
+        </Route>
+        <Route path='/blog'>
+          <BlogComp />
+        </Route>
+      </main>
+
+      
+      <Footer />
 
     </div>
   );
