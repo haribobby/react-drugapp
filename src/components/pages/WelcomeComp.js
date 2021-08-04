@@ -9,7 +9,7 @@ function WelcomeComp() {
             <br></br>
             <br></br>
             
-           <h2> Welcome Component.... </h2> 
+           <h2> Welcome to the ReactJS</h2> 
         </div>
     )
 }

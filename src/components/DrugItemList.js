@@ -16,7 +16,7 @@ function DrugItemList(props) {
 
             {props.drugs.map((drug) => (
                 <DrugItem
-                    key={drug.id}
+                    // key={drug.id}
                     title={drug.title}
                     desc={drug.desc}
                     amount={drug.amount}

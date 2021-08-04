@@ -6,9 +6,12 @@ import { useState } from 'react';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import WelcomeComp from './components/pages/WelcomeComp';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import DashBoard from './components/pages/DashBoard';
 import BlogComp from './components/pages/BlogComp';
+import Products from './components/pages/Products';
+import NotFound from './components/pages/NotFound';
+import ProductsView from './components/pages/ProductsView';
 
 
 const STATIC_DRUD_DATA = [
@@ -88,27 +91,39 @@ function App() {
         isPopular = {drugs[3].isPopular}
        /> */}
       <Header />
+     
       {/* <NewDrug onAddDrug={addDrugHandler}></NewDrug>
       <DrugItemList drugs={drugs} /> */}
 
 
       <main>
-        {/* <Route path='/drug'>
-          <NewDrug onAddDrug={addDrugHandler}></NewDrug>
-          <DrugItemList drugs={drugs} />
-        </Route> */}
+     <Switch>
         <Route path='/welcome'>
           <WelcomeComp />
         </Route>
-        <Route path='/dashboard'>
+        <Route path='/drugs' exact strict>
+          <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+          <DrugItemList drugs={drugs} />
+        </Route>
+        <Route path='/dashboard' >
           <DashBoard />
+        </Route>
+        <Route path='/products' exact>
+          <Products />
         </Route>
         <Route path='/blog'>
           <BlogComp />
         </Route>
+        <Route path='/products/:id'>
+          <ProductsView/>
+        </Route>
+        <Route path='*'>
+          <NotFound/>
+        </Route>
+        </Switch>
       </main>
 
-      
+
       <Footer />
 
     </div>
