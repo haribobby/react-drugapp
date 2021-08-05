@@ -12,6 +12,8 @@ import BlogComp from './components/pages/BlogComp';
 import Products from './components/pages/Products';
 import NotFound from './components/pages/NotFound';
 import ProductsView from './components/pages/ProductsView';
+import Message from './components/hooks/Message';
+import ContextParent from './components/hooks/ContextParent';
 
 
 const STATIC_DRUD_DATA = [
@@ -65,6 +67,10 @@ function App() {
   // );
   return (
     <div className="App">
+
+
+      {/* <Message/> */}
+      {/* <ContextParent/> */}
       {/* <h2> Welcome to  React JS!!!...</h2> */}
       {/* <DrugItemList
         title = {drugs[0].title}
@@ -90,41 +96,40 @@ function App() {
         amount = {drugs[3].amount}
         isPopular = {drugs[3].isPopular}
        /> */}
-      <Header />
-     
       {/* <NewDrug onAddDrug={addDrugHandler}></NewDrug>
       <DrugItemList drugs={drugs} /> */}
 
-
+<Message/>
+      {/* <Header />
       <main>
-     <Switch>
-        <Route path='/welcome'>
-          <WelcomeComp />
-        </Route>
-        <Route path='/drugs' exact strict>
-          <NewDrug onAddDrug={addDrugHandler}></NewDrug>
-          <DrugItemList drugs={drugs} />
-        </Route>
-        <Route path='/dashboard' >
-          <DashBoard />
-        </Route>
-        <Route path='/products' exact>
-          <Products />
-        </Route>
-        <Route path='/blog'>
-          <BlogComp />
-        </Route>
-        <Route path='/products/:id'>
-          <ProductsView/>
-        </Route>
-        <Route path='*'>
-          <NotFound/>
-        </Route>
+        <Switch>
+          <Route path='/welcome'>
+            <WelcomeComp />
+          </Route>
+          <Route path='/drugs' exact strict>
+            <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+            <DrugItemList drugs={drugs} />
+          </Route>
+          <Route path='/dashboard' >
+            <DashBoard />
+          </Route>
+          <Route path='/products' exact>
+            <Products />
+          </Route>
+          <Route path='/blog'>
+            <BlogComp />
+          </Route>
+          <Route path='/products/:id'>
+            <ProductsView />
+          </Route>
+          <Route path='*'>
+            <NotFound />
+          </Route>
         </Switch>
       </main>
 
 
-      <Footer />
+      <Footer /> */}
 
     </div>
   );

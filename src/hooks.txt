@@ -1,0 +1,296 @@
+UseState:
+
+import React, { useState } from 'react'
+
+function Message() {
+
+    const [username, setUsername] = useState("John");
+    const [user, setUser] = useState({ name: "John", age: 15 });
+    const [ count, setCount ] = useState(0);
+
+    console.log(user);
+
+    return (
+        <div>
+
+            <br />
+            User prop:  {username}
+            <br />
+            <br/>
+            User Obj name :  {user.name}
+            <br />
+            User Obj age :  {user.age}
+            <br />
+
+
+            <h1>Message Notifications</h1>
+			<p>You have received {count} new messages</p>
+
+            <br/>
+
+            <button onClick={() => setUsername('Jack')}> UpdateUserName</button>
+
+    
+            <button onClick={() => setUser({...user, age: 30 })}> UpdateUser</button>
+
+            <br/>
+            <button onClick={() => setCount(count + 1)}>Send Message</button>
+
+        </div>
+    )
+}
+
+export default Message
+
+
+
+UseEffect:
+
+import React, { useState, useEffect } from 'react'
+
+function Message() {
+
+    const [username, setUsername] = useState("John");
+    const [user, setUser] = useState({ name: "John", age: 15 });
+    const [ count, setCount ] = useState(0);
+
+    const[data, setData] = useState([]);
+    const[todos, setTodos] = useState([]);
+
+    console.log(user);
+
+   useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(data => setData(data));   
+   })
+
+   useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos").then(res => res.json()).then(data => setTodos(data));   
+ })
+
+    return (
+        <div>
+
+            <br />
+            User prop:  {username}
+            <br />
+            <br/>
+            User Obj name :  {user.name}
+            <br />
+            User Obj age :  {user.age}
+            <br />
+
+
+            <h1>Message Notifications</h1>
+			<p>You have received {count} new messages</p>
+
+            <br/>
+
+
+
+            <h1>Users</h1>
+            <br/>
+			<div>{data.map((user) => <p key={user.name}>{user.name}</p>)}</div>
+            <br/>
+			<h1>Todos</h1>
+            <br/>
+			<div>{todos.map((todo) => <p key={todo.title}>{todo.title}</p>)}</div>
+            <br/>
+
+            <button onClick={() => setUsername('Jack')}> UpdateUserName</button>
+
+    
+            <button onClick={() => setUser({...user, age: 30 })}> UpdateUser</button>
+
+            <br/>
+            <button onClick={() => setCount(count + 1)}>Send Message</button>
+
+        </div>
+    )
+}
+
+export default Message
+
+
+
+customHOOK:
+
+import React, { useEffect, useState, useDebugValue } from "react";
+
+export default function useFetch(url) {
+	const [ data, setData ] = useState([]);
+	useDebugValue(data.length > 0 ? "Loaded" : "Not loaded");
+	useEffect(() => {
+		fetch(url).then((res) => res.json()).then((data) => {
+			setData(data);
+		});
+	}, []);
+	return data;
+}
+
+
+import React, { useState, useEffect } from 'react'
+import useFetch from './useFetch';
+
+function Message() {
+
+    const [username, setUsername] = useState("John");
+    const [user, setUser] = useState({ name: "John", age: 15 });
+    const [count, setCount] = useState(0);
+
+    // const [data, setData] = useState([]);
+    // const [todos, setTodos] = useState([]);
+
+    console.log(user);
+
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(data => setData(data));
+    // }, [])
+
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/todos").then(res => res.json()).then(data => setTodos(data));
+    // }, [count])
+    const data = useFetch("https://jsonplaceholder.typicode.com/users");
+	const todos = useFetch("https://jsonplaceholder.typicode.com/todos");
+
+    return (
+        <div>
+
+            <br />
+            User prop:  {username}
+            <br />
+            <br />
+            User Obj name :  {user.name}
+            <br />
+            User Obj age :  {user.age}
+            <br />
+
+
+            <h1>Message Notifications</h1>
+            <p>You have received {count} new messages</p>
+
+            <br />
+            <button onClick={() => setUsername('Jack')}> UpdateUserName</button>
+
+
+            <button onClick={() => setUser({ ...user, age: 30 })}> UpdateUser</button>
+
+            <br />
+            <button onClick={() => setCount(count + 1)}>Send Message</button>
+
+
+            <h1>Users</h1>
+            <br />
+            <div>{data.map((user) => <p key={user.name}>{user.name}</p>)}</div>
+            <br />
+            <h1>Todos</h1>
+            <br />
+            <div>{todos.map((todo) => <p key={todo.title}>{todo.title}</p>)}</div>
+            <br />
+        </div>
+    )
+}
+
+export default Message
+====
+UseMomento:
+
+import React, { useState, useEffect, useMemo, useRef } from 'react'
+import useFetch from './useFetch';
+
+function Message() {
+
+    const [username, setUsername] = useState("John");
+    const [user, setUser] = useState({ name: "John", age: 15 });
+    const [count, setCount] = useState(0);
+
+    // const [data, setData] = useState([]);
+    // const [todos, setTodos] = useState([]);
+
+    console.log(user);
+
+
+
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(data => setData(data));
+    // }, [])
+
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/todos").then(res => res.json()).then(data => setTodos(data));
+    // }, [count])
+    const data = useFetch("https://jsonplaceholder.typicode.com/users");
+    const todos = useFetch("https://jsonplaceholder.typicode.com/todos");
+
+
+    const [a, setA] = useState(0);
+    const [b, setB] = useState(0);
+    const sum = useMemo(
+        () => {
+            return sumOfTwo(a, b);
+        },
+        [a, b],
+    );
+
+    //const sum =sumOfTwo(a, b);
+    const input1 = useRef();
+	const input2 = useRef();
+    return (
+        <div>
+
+
+
+            <h1>useMemo</h1>
+
+            <input type="number"  value={a} onChange={(e) => setA(e.target.value)} />
+            <input type="number"  value={b} onChange={(e) => setB(e.target.value)} />
+            {/* <input type="number" ref={input1} value={a} onChange={(e) => setA(e.target.value)} />
+            <input type="number" ref={input2} value={b} onChange={(e) => setB(e.target.value)} /> */}
+            <h2>Sum</h2>
+            <div>{sum}</div>
+
+
+            <br />
+            User prop:  {username}
+            <br />
+            <br />
+            User Obj name :  {user.name}
+            <br />
+            User Obj age :  {user.age}
+            <br />
+
+
+            <h1>Message Notifications</h1>
+            <p>You have received {count} new messages</p>
+
+            <br />
+            <button onClick={() => setUsername('Jack')}> UpdateUserName</button>
+
+
+            <button onClick={() => setUser({ ...user, age: 30 })}> UpdateUser</button>
+
+            <br />
+            <button onClick={() => setCount(count + 1)}>Send Message</button>
+
+
+            <h1>Users</h1>
+            <br />
+            <div>{data.map((user) => <p key={user.name}>{user.name}</p>)}</div>
+            <br />
+            <h1>Todos</h1>
+            <br />
+            <div>{todos.map((todo) => <p key={todo.title}>{todo.title}</p>)}</div>
+            <br />
+
+
+
+        </div>
+    )
+}
+
+function sumOfTwo(a, b) {
+    for (var i = 0; i < 1000000000; i++) { }
+    return parseInt(a) + parseInt(b);
+}
+
+export default Message
+
+

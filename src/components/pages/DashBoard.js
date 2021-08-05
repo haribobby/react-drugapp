@@ -7,7 +7,6 @@ function DashBoard() {
             <br></br>
             <br></br>
             <h2>Dash Board... </h2>
-            {/* <Redirect to='/login'/> */}
         </div>
     )
 }

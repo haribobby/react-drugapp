@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import './Header.css'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -14,10 +14,10 @@ const Header = () => {
             <li>
             </li>
             <li>
-              <Link to='/welcome'> Welcome </Link>
+              <NavLink activeStyle={{color:'red'}} to='/welcome'> Welcome </NavLink>
             </li>
             <li>
-              <Link to='/drugs'> Drugs </Link>
+            <NavLink activeStyle={{color:'red'}} to='/drugs'> Drugs </NavLink>
             </li>
             <li>
               <Link to='/dashboard'> DashBoard </Link>
