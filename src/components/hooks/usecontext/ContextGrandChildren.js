@@ -11,8 +11,8 @@ function ContextGrandChildren() {
             {/* <MessageContext.Consumer>
     {(data) =><div> Name: <b> {data.name}</b> &nbsp;&nbsp; age: {data.age}</div>}
             </MessageContext.Consumer> */}
-     
-     <div> Name: <b> {data.name}</b> &nbsp;&nbsp; age: {data.age}</div>
+
+            <div> Name: <b> {data.name}</b> &nbsp;&nbsp; age: {data.age}</div>
 
         </div>
     )

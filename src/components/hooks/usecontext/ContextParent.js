@@ -6,9 +6,10 @@ function ContextParent() {
     return (
         <div>
             <p> Parent Componenet </p>
-            <MessageContext.Provider value={{name: "Rosey", age:26}}>
+            <MessageContext.Provider value={{name: "John", age:26}}>
                 <ContextChild/>
             </MessageContext.Provider>
+
         </div>
     )
 }
