@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import useFetch from '../customhooks/useFetch';
 
 function Message() {
     //console.log("Loggin......");
@@ -16,16 +17,20 @@ function Message() {
     // console.log(user);
 
 
-    //    fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(data => setData(data));   
+    //    fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(data => setData(data));  
+    
+   
 
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then((data) => {
+    // useEffect(() => {
+    //     fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then((data) => {
 
-            console.log("useeffect call.....")
-            setData(data);
+    //         console.log("useeffect call.....")
+    //         setData(data);
 
-        });
-    }, [user, count])
+    //     });
+
+    //     fetch("https://jsonplaceholder.typicode.com/todos").then(res => res.json()).then(data => setTodos(data));   
+    // }, [user, count])
 
     //    useEffect(() => {
     //     fetch("https://jsonplaceholder.typicode.com/todos").then(res => res.json()).then(data => setTodos(data));   
@@ -50,7 +55,6 @@ function Message() {
             <br />
 
             <button onClick={() => setUsername('Jack')}> UpdateUserName</button>
-
 
             <button onClick={() => setUser({ ...user, age: 30 })}> UpdateUser</button>
 

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import useFetch from "../customhooks/useFetch";
 
 function CounterHook(props) {
 
+    console.log("debugging....");
+
     const [count, setCount] = useState(1);
+
+   // const data  = useFetch("https://jsonplaceholder.typicode.com/posts");
   
     return (
 

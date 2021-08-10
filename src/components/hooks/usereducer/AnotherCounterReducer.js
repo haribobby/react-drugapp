@@ -41,11 +41,11 @@ function AnotherCounterReducer() {
 			</button>
             <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
            
-            {/* <div>Secound Counter = {count.secondCounter}</div>
+            <div>Secound Counter = {count.secondCounter}</div>
             <div>
                 <button onClick={() => dispatch({ type: 'increment2', value: 1 })}>Increment</button>
                 <button onClick={() => dispatch({ type: 'decrement2', value: 1 })}> Decrement </button>
-            </div> */}
+            </div>
         </div>
     )
 }

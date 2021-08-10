@@ -1,21 +1,24 @@
 import React, { useContext, useDebugValue } from 'react'
-import { MessageContext } from './ContextParent'
+import ContextGrandGrandChildren from './ContextGrandGrandChildren';
+// import { MessageContext } from './ContextParent'
 
 function ContextGrandChildren() {
 
-    const data = useContext(MessageContext);
-    console.log(data);
+    // const data = useContext(MessageContext);
+   // console.log(data);
     return (
         <div>
             <p>Grand children here.....</p>
-            {/* <MessageContext.Consumer>
-    {(data) =><div> Name: <b> {data.name}</b> &nbsp;&nbsp; age: {data.age}</div>}
-            </MessageContext.Consumer> */}
 
-            <div> Name: <b> {data.name}</b> &nbsp;&nbsp; age: {data.age}</div>
+            <ContextGrandGrandChildren/>
 
         </div>
     )
 }
 
 export default ContextGrandChildren
+
+
+// A -> B -> C -> D -> E -> F
+
+// name: "john"
