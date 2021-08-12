@@ -1,36 +1,106 @@
 
 import './App.css';
-import Message from './components/hooks/usestate/Message';
-import CounterClass from './components/hooks/classcomponentsvshooks/CounterClass';
-import CounterHook from './components/hooks/classcomponentsvshooks/CounterHook';
-import IntervalHookCounter from './components/hooks/useeffect/IntervalHookCounter';
-import HookMouse from './components/hooks/useeffect/HookMouse';
-import DataFetching from './components/hooks/useeffect/DataFetching';
-import ContextParent from './components/hooks/usecontext/ContextParent';
-import CounterReducerExample from './components/hooks/usereducer/CounterReducer';
-import AnotherCounterReducer from './components/hooks/usereducer/AnotherCounterReducer';
-import ReuseReducerCounter from './components/hooks/usereducer/ReuseReducerCounter';
-import FetchingWithEffectAndState from './components/hooks/usereducer/datafetching/FetchingWithEffectAndState';
-import InputFocusRef from './components/hooks/useref/InputFocusRef';
+import DrugItemList from './components/DrugItemList';
+import NewDrug from './components/newdrugs/NewDrug';
+import { useState } from 'react';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import WelcomeComp from './components/pages/WelcomeComp';
+import { Route, Switch } from 'react-router-dom';
+import DashBoard from './components/pages/DashBoard';
+import BlogComp from './components/pages/BlogComp';
+import Products from './components/pages/Products';
+import NotFound from './components/pages/NotFound';
+import ProductsView from './components/pages/ProductsView';
 
 
 
+
+const STATIC_DRUD_DATA = [
+  {
+    id: 'd1',
+    title: 'Crocin',
+    amount: 14.12,
+    isPopular: true,
+    desc: 'Crocin Advance is the best medicine for Joint, knee, muscles and other pains which provide fast and effective relief. It is suitable for adults as well as',
+  },
+  {
+    id: 'd2',
+    title: 'Zincovit',
+    amount: 4.12,
+    isPopular: false,
+    desc: 'It is a nutritional supplement that restores the amount of vitamins and minerals in your body and helps to improve your overall health.',
+  },
+  {
+    id: 'd3',
+    title: 'Lipitor',
+    amount: 194.28,
+    isPopular: false,
+    desc: 'LIPITOR is a prescription medicine that lowers cholesterol in the blood. It lowers the LDL-C ("bad" cholesterol) and triglycerides in your blood',
+  },
+  {
+    id: 'd4',
+    title: 'Sildenafil  ',
+    amount: 694.88,
+    isPopular: true,
+    desc: 'Sildenafil is used to treat  function problems (impotence or erectile dysfunction-ED). In combination with sildenafil works',
+  }
+];
 function App() {
 
+  const [drugs, setDrugs] = useState(STATIC_DRUD_DATA);
 
+
+  const addDrugHandler = (drug) => {
+    console.log('In App.js');
+    console.log(drug);
+    setDrugs((prevDrug) => {
+      return [drug, ...prevDrug];
+    });
+  };
+
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, " Welcome to  React JS!!!..."),
+  //   React.createElement(DrugItemList, { items: expenses })
+  // );
   return (
     <div className="App">
-      <br /> <br />
-      {/* <CounterClass/> */}
-      {/* <CounterHook/> */}
-      {/* <IntervalHookCounter/> */}
-      {/* <DataFetching/> */}
-      {/* <ContextParent/> */}
-      {/* <CounterReducerExample/> */}
-      {/* <AnotherCounterReducer/> */}
-      {/* <ReuseReducerCounter/> */}
-      {/* <FetchingWithEffectAndState/> */}
-      <InputFocusRef/>
+    <br/> <br/>
+
+    
+      <Header />
+      <main>
+        <Switch>
+          <Route path='/welcome'>
+            <WelcomeComp />
+          </Route>
+          <Route path='/drugs' exact strict>
+            <NewDrug onAddDrug={addDrugHandler}></NewDrug>
+            <DrugItemList drugs={drugs} />
+          </Route>
+          <Route path='/dashboard' >
+            <DashBoard />
+          </Route>
+          <Route path='/products' exact>
+            <Products />
+          </Route>
+          <Route path='/blog'>
+            <BlogComp />
+          </Route>
+          <Route path='/products/:id'>
+            <ProductsView />
+          </Route>
+          <Route path='*'>
+            <NotFound />
+          </Route>
+        </Switch>
+      </main>
+      <Footer />
+      
+
+
     </div>
   );
 }
