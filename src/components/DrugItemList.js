@@ -1,8 +1,11 @@
 import './DrugItemList.css'
 import DrugItem from './DrugItem';
-function DrugItemList(props) {
+import { useSelector } from 'react-redux';
+function DrugItemList() {
 
-    console.log(props.drugs);
+    // console.log(props.drugs);
+
+    const drugs = useSelector(state => state.alldrugs)
     return (
         // <div className="drug-item">
         //     <div className="drug-item__title"><b>{props.title}</b></div>
@@ -14,7 +17,7 @@ function DrugItemList(props) {
         // </div>
         <div className="drug-item__list">
 
-            {props.drugs.map((drug) => (
+            {drugs.map((drug) => (
                 <DrugItem
                     key={drug.id}
                     title={drug.title}

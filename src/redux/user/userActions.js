@@ -13,11 +13,11 @@ export const fetchUsers = () => {
       .then(response => {
         // response.data is the users
         const users = response.data
-        dispatch(fetchUsersSuccess(users))
+       dispatch(fetchUsersSuccess(users))
       })
       .catch(error => {
         // error.message is the error message
-        dispatch(fetchUsersFailure(error.message))
+         dispatch(fetchUsersFailure(error.message))
       })
   }
 }

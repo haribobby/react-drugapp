@@ -5,18 +5,19 @@ import NewDrugForm from './NewDrugForm';
 
 const NewDrug = (props) => {
 
-    const saveDrugDataHandler = (enteredDrugData) => {
-        const drugData = {
-          ...enteredDrugData,
-          id: Math.random().toString()
-        };
+    // const saveDrugDataHandler = (enteredDrugData) => {
+    //     const drugData = {
+    //       ...enteredDrugData,
+    //       id: Math.random().toString()
+    //     };
 
-        //console.log("NewDrug.... "+ JSON.stringify(drugData));
-        props.onAddDrug(drugData);
-      };
+    //     //console.log("NewDrug.... "+ JSON.stringify(drugData));
+    //     props.onAddDrug(drugData);
+    //   };
   return (
     <div className='new-drug'>
-      <NewDrugForm onSaveDrugData={saveDrugDataHandler}/>
+      {/* <NewDrugForm onSaveDrugData={saveDrugDataHandler}/> */}
+      <NewDrugForm/>
     </div>
   );
 };

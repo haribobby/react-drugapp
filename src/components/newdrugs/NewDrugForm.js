@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
 import './NewDrugForm.css';
+import { useDispatch } from 'react-redux';
+import { addDrug } from '../../redux/actions/drugActions';
 
 const NewDrugForm = (props) => {
+
+
+   const dispatch = useDispatch();
 
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredPopular, setEnteredPopular] = useState('');
@@ -48,6 +53,7 @@ const NewDrugForm = (props) => {
         event.preventDefault();
         
         const drudAddData = {
+          id: Math.random().toString(),
           title: enteredTitle,
           popular:enteredPopular,
           desc: enteredDesc,
@@ -55,7 +61,9 @@ const NewDrugForm = (props) => {
         };
         console.log(drudAddData);
 
-        props.onSaveDrugData(drudAddData);
+        dispatch(addDrug(drudAddData));
+
+      //  props.onSaveDrugData(drudAddData);
 
         setEnteredTitle('');
         setEnteredPopular('');
